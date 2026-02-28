@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login — ParkSmart</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    body { background: var(--darker); }
+
+    .auth-layout {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* Left side */
+    .auth-visual {
+      background: var(--dark);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 30%, rgba(230,57,70,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(255,107,53,0.06) 0%, transparent 60%);
+    }
+
+    .auth-visual-content {
+      position: relative;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    .auth-visual h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .auth-visual p {
+      color: var(--gray2);
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 380px;
+    }
+
+    .auth-feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .auth-feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--gray2);
+    }
+
+    .auth-feature-list li .check {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: rgba(45,198,83,0.15);
+      border: 1px solid rgba(45,198,83,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    .stats-strip {
+      display: flex;
+      gap: 32px;
+      position: relative;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stats-strip-item .val {
+      font-family: 'Syne', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .stats-strip-item .lbl {
+      font-size: 11px;
+      color: var(--gray2);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    /* Right side */
+    .auth-form-side {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .auth-box {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .auth-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      text-decoration: none;
+    }
+
+    .auth-box h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 6px;
+    }
+
+    .auth-box .sub {
+      color: var(--gray2);
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .auth-box .sub a {
+      color: var(--red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .or-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+      color: var(--gray2);
+      font-size: 12px;
+    }
+
+    .or-divider::before,
+    .or-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .social-btn {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+      margin-bottom: 10px;
+    }
+
+    .social-btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .forgot-link {
+      color: var(--red);
+      text-decoration: none;
+      font-size: 13px;
+      float: right;
+      margin-top: -14px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .auth-layout { grid-template-columns: 1fr; }
+      .auth-visual { display: none; }
+      .auth-form-side { padding: 20px; padding-top: 100px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-box">P</div>
+    <span>Park<em>Smart</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="scanner.html">Scanner</a></li>
+    <li><a href="parking-logs.html">Parking Logs</a></li>
+    <li><a href="reservations.html">Reservations</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="login.html" class="active">Login/Signup</a></li>
+  </ul>
+  <div class="nav-cta">
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="page-wrapper" style="padding-top:0">
+  <div class="auth-layout">
+    <!-- Left Visual -->
+    <div class="auth-visual">
+      <a href="index.html" class="nav-logo" style="position:relative;z-index:1">
+        <div class="logo-box">P</div>
+        <span>Park<em>Smart</em></span>
+      </a>
+      <div class="auth-visual-content">
+        <h2>Welcome to<br><span style="color:var(--red)">ParkSmart</span></h2>
+        <p>The intelligent parking management platform that saves time, reduces stress, and maximizes revenue.</p>
+        <ul class="auth-feature-list">
+          <li><div class="check">✓</div> Real-time lot monitoring & alerts</li>
+          <li><div class="check">✓</div> Advance reservations & management</li>
+          <li><div class="check">✓</div> Instant vehicle scanning & logging</li>
+          <li><div class="check">✓</div> Revenue analytics & reports</li>
+        </ul>
+      </div>
+      <div class="stats-strip">
+        <div class="stats-strip-item">
+          <div class="val">10K+</div>
+          <div class="lbl">Users</div>
+        </div>
+        <div class="stats-strip-item">
+          <div class="val">50+</div>
+          <div class="lbl">Lots</div>
+        </div>
+        <div class="stats-strip-item">
+          <div class="val">99.9%</div>
+          <div class="lbl">Uptime</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Form -->
+    <div class="auth-form-side">
+      <div class="auth-box">
+
+        <!-- LOGIN -->
+        <div id="loginSection">
+          <h2>Sign in</h2>
+          <p class="sub">
+            Don't have an account? <a href="#" id="showSignup">Create one →</a>
+          </p>
+          <button class="social-btn">
+            <img src="https://www.svgrepo.com/show/303108/google-icon-logo.svg" width="18" height="18" alt="Google">
+            Continue with Google
+          </button>
+          <div class="or-divider">or sign in with email</div>
+          <form id="loginForm">
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" id="login-email" placeholder="juan@example.com" required>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="login-pass" placeholder="••••••••" required>
+            </div>
+            <a href="#" class="forgot-link">Forgot password?</a>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
+              <input type="checkbox" id="remember" style="width:auto;accent-color:var(--red)">
+              <label for="remember" style="font-size:13px;color:var(--gray2);text-transform:none;letter-spacing:0;margin:0;cursor:pointer">Remember me</label>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:13px;font-size:15px">Login →</button>
+          </form>
+        </div>
+
+        <!-- SIGNUP -->
+        <div id="signupSection" style="display:none">
+          <h2>Create account</h2>
+          <p class="sub">
+            Already have an account? <a href="#" id="showLogin">Sign in →</a>
+          </p>
+          <button class="social-btn">
+            <img src="https://www.svgrepo.com/show/303108/google-icon-logo.svg" width="18" height="18" alt="Google">
+            Sign up with Google
+          </button>
+          <div class="or-divider">or create with email</div>
+          <form id="signupForm">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="Juan" required>
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Dela Cruz" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="juan@example.com" required>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="signup-pass" placeholder="At least 8 characters" required>
+            </div>
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <input type="password" id="signup-confirm" placeholder="Repeat password" required>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:20px">
+              <input type="checkbox" id="terms" style="width:auto;accent-color:var(--red);margin-top:3px" required>
+              <label for="terms" style="font-size:13px;color:var(--gray2);text-transform:none;letter-spacing:0;margin:0;cursor:pointer;line-height:1.5">I agree to the <a href="#" style="color:var(--red)">Terms of Service</a> and <a href="#" style="color:var(--red)">Privacy Policy</a></label>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:13px;font-size:15px">Create Account →</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

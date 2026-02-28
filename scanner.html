@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scanner — ParkSmart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo"><div class="logo-box">P</div><span>Park<em>Smart</em></span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="scanner.html">Scanner</a></li>
+      <li><a href="parking-logs.html">Parking Logs</a></li>
+      <li><a href="reservations.html">Reservations</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-cta"><a href="login.html" class="btn btn-outline">Login</a><a href="login.html" class="btn btn-primary">Apply Now!</a></div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <a href="index.html">Home</a><a href="scanner.html">Scanner</a><a href="parking-logs.html">Parking Logs</a><a href="reservations.html">Reservations</a><a href="about.html">About</a>
+  <a href="login.html" class="btn btn-primary">Apply Now!</a>
+</div>
+<main>
+<div class="page-header">
+  <div class="container page-header-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span class="current">Scanner</span></div>
+    <h1>Vehicle Scanner</h1>
+    <p>Scan license plates or QR codes for instant vehicle entry and exit logging.</p>
+  </div>
+</div>
+
+<section class="content-section">
+  <div class="scanner-container">
+    <div class="scanner-box">
+      <span class="scanner-icon">📷</span>
+      <h2>License Plate Scanner</h2>
+      <p>Position the vehicle plate within the frame and press scan</p>
+      <div class="scan-frame">
+        <div class="scan-line"></div>
+      </div>
+      <button id="startScanBtn" class="btn btn-primary btn-lg" style="position:relative;z-index:1;">Start Scanning</button>
+    </div>
+    <div id="scanResult" style="margin-bottom:32px;"></div>
+
+    <div class="logs-table-wrap">
+      <div style="padding:24px 28px;border-bottom:1px solid #f1f1f1;">
+        <h3 style="font-size:18px;font-weight:700;">Recent Scans</h3>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Plate No.</th><th>Lot</th><th>Slot</th><th>Time</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>ABC 1234</strong></td><td>Lot A</td><td>A-12</td><td>08:32 AM</td><td><span class="status-badge parked">Entry</span></td></tr>
+          <tr><td><strong>XYZ 5678</strong></td><td>Lot B</td><td>B-05</td><td>09:15 AM</td><td><span class="status-badge parked">Entry</span></td></tr>
+          <tr><td><strong>DEF 9012</strong></td><td>Lot A</td><td>A-07</td><td>10:00 AM</td><td><span class="status-badge done">Exit</span></td></tr>
+          <tr><td><strong>GHI 3456</strong></td><td>Lot C</td><td>C-22</td><td>11:05 AM</td><td><span class="status-badge parked">Entry</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo"><div class="logo-box">P</div><span style="color:white;">Park<em style="color:var(--red);">Smart</em></span></a><p>Intelligent parking solutions for modern cities.</p></div>
+      <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="scanner.html">Scanner</a></li><li><a href="parking-logs.html">Parking Logs</a></li><li><a href="reservations.html">Reservations</a></li><li><a href="about.html">About</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="#">Slot Monitoring</a></li><li><a href="#">Online Booking</a></li><li><a href="#">Plate Scanning</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 ParkSmart. All rights reserved.</span><span>Made with ❤️ in the Philippines</span></div>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

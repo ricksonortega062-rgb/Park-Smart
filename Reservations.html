@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservations — ParkSmart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo"><div class="logo-box">P</div><span>Park<em>Smart</em></span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="scanner.html">Scanner</a></li><li><a href="reservations.html">Reservations</a></li><li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-cta"><a href="login.html" class="btn btn-outline">Login</a><a href="login.html" class="btn btn-primary">Apply Now!</a></div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <a href="index.html">Home</a><a href="scanner.html">Scanner</a><a href="parking-logs.html">Parking Logs</a><a href="reservations.html">Reservations</a><a href="about.html">About</a>
+  <a href="login.html" class="btn btn-primary">Apply Now!</a>
+</div>
+<main>
+<div class="page-header">
+  <div class="container page-header-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span class="current">Reservations</span></div>
+    <h1>Book a Parking Slot</h1>
+    <p>Reserve your spot in advance and arrive with confidence knowing your parking is secured.</p>
+  </div>
+</div>
+
+<section class="content-section">
+  <div class="container">
+    <div class="res-grid">
+      <!-- Form -->
+      <div class="fade-up">
+        <div class="res-form-card">
+          <h3>+ New Reservation</h3>
+          <p>Fill in the details below to secure your parking slot.</p>
+          <form id="reservationForm">
+            <div class="form-group">
+              <label>License Plate Number</label>
+              <input type="text" id="resPlate" placeholder="e.g. ABC 1234" required />
+            </div>
+            <div class="form-group">
+              <label>Select Parking Lot</label>
+              <select id="resLot" required>
+                <option value="">Choose a lot…</option>
+                <option>Lot A — Main (28 slots available)</option>
+                <option>Lot B — Annex (35 slots available)</option>
+                <option>Lot C — Rooftop (32 slots available)</option>
+                <option>Lot D — Underground (26 slots available)</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Date</label>
+                <input type="date" id="resDate" required />
+              </div>
+              <div class="form-group">
+                <label>Time</label>
+                <input type="time" id="resTime" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Expected Duration</label>
+              <select>
+                <option>1 Hour</option>
+                <option>2 Hours</option>
+                <option>3 Hours</option>
+                <option>4 Hours</option>
+                <option>Half Day (6 hrs)</option>
+                <option>Full Day</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Vehicle Type</label>
+              <select>
+                <option>Sedan / Compact</option>
+                <option>SUV / MPV</option>
+                <option>Motorcycle</option>
+                <option>Van / Truck</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Reserve Slot</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- My Reservations -->
+      <div class="fade-up fade-up-delay-2">
+        <div class="my-reservations">
+          <h3>My Reservations</h3>
+          <div id="myReservations">
+            <div class="res-card">
+              <div class="res-card-info">
+                <h4>XYZ 5678</h4>
+                <p>Lot B — Annex &middot; Today at 09:15 AM</p>
+              </div>
+              <span class="status-badge parked">🚗 Active</span>
+            </div>
+            <div class="res-card">
+              <div class="res-card-info">
+                <h4>ABC 1234</h4>
+                <p>Lot A — Main &middot; Today at 08:32 AM</p>
+              </div>
+              <span class="status-badge done">✓ Done</span>
+            </div>
+            <div class="res-card">
+              <div class="res-card-info">
+                <h4>MNO 2345</h4>
+                <p>Lot D — Underground &middot; Tomorrow at 08:00 AM</p>
+              </div>
+              <span class="status-badge pending">⏳ Upcoming</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lot Availability -->
+        <div style="margin-top:40px;">
+          <h3 style="font-size:20px;font-weight:700;margin-bottom:20px;">Current Lot Availability</h3>
+          <div class="vision-big-card" style="padding:28px;">
+            <div class="vision-stat"><span class="vs-label">Lot A — Main (100 total)</span><span class="vs-val" style="color:#e8192c;">28 available</span></div>
+            <div class="vision-stat"><span class="vs-label">Lot B — Annex (80 total)</span><span class="vs-val" style="color:#f97316;">35 available</span></div>
+            <div class="vision-stat"><span class="vs-label">Lot C — Rooftop (60 total)</span><span class="vs-val" style="color:#4ade80;">32 available</span></div>
+            <div class="vision-stat"><span class="vs-label">Lot D — Underground (44 total)</span><span class="vs-val" style="color:#4ade80;">26 available</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo"><div class="logo-box">P</div><span style="color:white;">Park<em style="color:var(--red);">Smart</em></span></a><p>Intelligent parking solutions for modern cities.</p></div>
+      <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="scanner.html">Scanner</a></li><li><a href="parking-logs.html">Parking Logs</a></li><li><a href="reservations.html">Reservations</a></li><li><a href="about.html">About</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="#">Slot Monitoring</a></li><li><a href="#">Online Booking</a></li><li><a href="#">Plate Scanning</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 ParkSmart. All rights reserved.</span><span>Made with ❤️ in the Philippines</span></div>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
